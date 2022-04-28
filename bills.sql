@@ -1,46 +1,37 @@
-news- 08/08/20
 
+:exit
 
 --Avg
 SELECT TOP (25) * FROM [WellsFargo].[dbo].[average_pay_amount_valencia] ORDER BY 1
 GO
 
+/*
+exec [WellsFargo].[dbo].[bp_auto_citi_att_internet]		'2022-04-05', '53.00'
+exec [WellsFargo].[dbo].[bp_auto_citi_burrtec]			'2022-04-01', '84.60'
+exec [WellsFargo].[dbo].[bp_auto_citi_citicostco]		'2022-05-09', '3190.48'
+exec [WellsFargo].[dbo].[bp_auto_citi_scv]				'2022-04-22', '31.15'
+exec [WellsFargo].[dbo].[bp_auto_citi_stevenson_ST1]	'2022-04-01', '90.00'
+exec [WellsFargo].[dbo].[bp_auto_citi_treana_TR6]		'2022-05-01', '290.00'
+exec [WellsFargo].[dbo].[bp_auto_wf_mrcooper]			'2022-04-01', '2703.30'
+exec [WellsFargo].[dbo].[bp_auto_wf_socalgas]			'2022-05-08', '11.11'
 
-USE [WellsFargo]
-GO
-DECLARE @dd as Date = '2020-07-01'
-DECLARE @ad as Money = 252.00
 
-INSERT INTO [dbo].[billing_info]
-           ([account_id]
-           ,[due_date]
-           ,[amount_due]
-           ,[address_id]
-           ,[date_created]
-           ,[DateKey])
---/*  att_internet  */	VALUES ('13'	/*	account_id	*/, @dd, @ad, '16', getdate(), CONVERT(VARCHAR(10), @dd, 112))
---/*  costco_citi  */	VALUES ('18'	/*	account_id	*/, @dd, @ad, '16', getdate(), CONVERT(VARCHAR(10), @dd, 112))
---/*  Edison  */		VALUES ('14'	/*	account_id	*/, @dd, @ad, '16', getdate(), CONVERT(VARCHAR(10), @dd, 112))
---/*  LoanDepot - R  */	VALUES ('25'	/*	account_id	*/, @dd, @ad, '16', getdate(), CONVERT(VARCHAR(10), @dd, 112))
---/*  SCV  */			VALUES ('16'	/*	account_id	*/, @dd, @ad, '16', getdate(), CONVERT(VARCHAR(10), @dd, 112))
---/*  SoCalGas  */		VALUES ('22'	/*	account_id	*/, @dd, @ad, '16', getdate(), CONVERT(VARCHAR(10), @dd, 112))
---/*  slate_chase  */	VALUES ('23'	/*	account_id	*/, @dd, @ad, '16', getdate(), CONVERT(VARCHAR(10), @dd, 112))
---/*  stev_rnch  */		VALUES ('21'	/*	account_id	*/, @dd, @ad, '16', getdate(), CONVERT(VARCHAR(10), @dd, 112))
-/*  treana  */		VALUES ('20'	/*	account_id	*/, @dd, @ad, '16', getdate(), CONVERT(VARCHAR(10), @dd, 112))
---/*  wm  */			VALUES ('17'	/*	account_id	*/, @dd, @ad, '16', getdate(), CONVERT(VARCHAR(10), @dd, 112))
+MANUAL
+exec [WellsFargo].[dbo].[bp_MAN_wf_socaledison]			'2022-03-07', '87.42'
+*/
 
-GO
 
+  ----------------------------------------------------------------------------------------------------
 
 --Avg
 SELECT TOP (25) * FROM [WellsFargo].[dbo].[average_pay_amount_valencia] ORDER BY 1
 GO
 
 --10 latest
-SELECT top 15 * 
+SELECT top 30 * 
 FROM [WellsFargo]..bill_review
-where account_name = 'costco_citi'
-order by 1 DESC
+where account_name LIKE '%ocal%'
+order by 3 DESC
 
 
 --current
@@ -76,6 +67,4 @@ order by 1 DESC
 
 
 
-
-
-
+416
